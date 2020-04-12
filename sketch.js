@@ -2,7 +2,7 @@ var data;
 
 // preload table data
 function preload() {
-  data = loadTable('iris.csv', 'csv', 'header');
+  data = loadTable('data/iris.csv', 'csv', 'header');
 }
 
 function setup() {
