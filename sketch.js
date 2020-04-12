@@ -30,8 +30,9 @@ function setup() {
     let val2 = data.getNum(i, "PetalWidthCm"); //iris petal widths
     let xpos = map(val1, 0, maxPetalL, 0, width);
     let ypos = map(val2, maxPetalW, 0, height, 0);
-    point(xpos, ypos);
+    ellipse(xpos, ypos, 2, 2);
     stroke(255, 1, 1);
+    fill('rgb(0,255,0)');
 
   }
 
