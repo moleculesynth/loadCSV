@@ -25,19 +25,16 @@ function setup() {
   // noprotect
   for (var i = 0; i < data.getRowCount(); i++) {
 
-    let val = data.getNum(i, "PetalLengthCm");
-    // draw iris petal lengths
+    let val = data.getNum(i, "PetalLengthCm"); // draw iris petal lengths
     let xpos = map(i, 0, data.getRowCount(), 0, width);
-    // why map from height to zero (instead of from
-    // zero to height?)
     let ypos = map(val, minPetalL, maxPetalL, height, 0);
-
     point(xpos, ypos);
 
   }
 
   // draw a line where zero is
-  stroke(255, 0, 0);
+  stroke(255, 1, 1);
+  fill(255);
   let zeroVal = map(0, minPetalL, maxPetalL, height, 0);
   line(0, zeroVal, width, zeroVal);
 }
