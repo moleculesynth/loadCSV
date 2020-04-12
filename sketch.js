@@ -15,12 +15,21 @@ function setup() {
   // getColumn moves to an array of all the values in the column with the given name.
   let petlength = data.getColumn("PetalLengthCm");
   let petwidth = data.getColumn("PetalWidthCm");
+  //establish minimum and max values of data set, then map onto canvas
+  let minPetalL = min(petlength);
+  let maxPetalL = max(petlength);
+  console.log(minPetalL);
+  console.log(maxPetalL);
+  let minPetalW = min(petwidth);
+  let maxPetalW = max(petwidth);
+  console.log(minPetalW);
+  console.log(maxPetalW);
   
   for (var i = 0; i < data.getRowCount(); i++) {
     let val1 = data.getNum(i, "PetalLengthCm"); // iris petal lengths
     let val2 = data.getNum(i, "PetalWidthCm"); //iris petal widths
-    let xpos = map(val1, 0, data.getRowCount(), 0, width);
-    let ypos = map(0, val2, data.getRowCount(), height, 0);
+    let xpos = map(val1, 0, maxPetalL, 0, width);
+    let ypos = map(val2, maxPetalW, 0, height, 0);
     point(xpos, ypos);
     stroke(255, 1, 1);
 
