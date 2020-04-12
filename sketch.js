@@ -22,6 +22,7 @@ function setup() {
     let xpos = map(val1, 0, data.getRowCount(), 0, width);
     let ypos = map(0, val2, data.getRowCount(), height, 0);
     point(xpos, ypos);
+    stroke(255, 1, 1);
 
   }
 
