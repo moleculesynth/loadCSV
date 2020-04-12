@@ -12,29 +12,17 @@ function setup() {
   background(51);
   stroke(255);
 
-  // getColumn evaluates to a list of all the values
-  // in the column with the given name.
-  let petals = data.getColumn("PetalLengthCm");
-  // the min and max functions tell us what the lowest
-  // and highest values of the array are
-  let minPetalL = min(petals);
-  let maxPetalL = max(petals);
-  console.log(minPetalL);
-  console.log(maxPetalL);
-
-  // noprotect
+  // getColumn moves to an array of all the values in the column with the given name.
+  let petlength = data.getColumn("PetalLengthCm");
+  let petwidth = data.getColumn("PetalWidthCm");
+  
   for (var i = 0; i < data.getRowCount(); i++) {
-
-    let val = data.getNum(i, "PetalLengthCm"); // draw iris petal lengths
-    let xpos = map(i, 0, data.getRowCount(), 0, width);
-    let ypos = map(val, minPetalL, maxPetalL, height, 0);
+    let val1 = data.getNum(i, "PetalLengthCm"); // iris petal lengths
+    let val2 = data.getNum(i, "PetalWidthCm"); //iris petal widths
+    let xpos = map(val1, 0, data.getRowCount(), 0, width);
+    let ypos = map(0, val2, data.getRowCount(), height, 0);
     point(xpos, ypos);
 
   }
 
-  // draw a line where zero is
-  stroke(255, 1, 1);
-  fill(255);
-  let zeroVal = map(0, minPetalL, maxPetalL, height, 0);
-  line(0, zeroVal, width, zeroVal);
 }
